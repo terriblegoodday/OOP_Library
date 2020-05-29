@@ -14,10 +14,14 @@ int main(int argc, const char * argv[]) {
     Library library;
     library.loadFilesFromStorage();
     
+    cout << library << endl;
+    
     auto filteredBooks = library.filterByAuthor("James Joyce");
     cout << filteredBooks;
     auto considerPhlebas = library.filterByAuthor("Iain M. Banks").andBook("Consider Phlebas");
     cout << considerPhlebas;
+    
+    cout << considerPhlebas.orBook("Excession");
     
     return 0;
 }
