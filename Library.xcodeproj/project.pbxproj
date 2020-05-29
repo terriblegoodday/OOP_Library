@@ -8,23 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		775E8B6C247A859700FFE164 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B6B247A859700FFE164 /* main.cpp */; };
+		775E8B74247A85B000FFE164 /* Library.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 775E8B72247A85B000FFE164 /* Library.cpp */; };
+		775E8BC5248019D900FFE164 /* books.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 775E8BC4248019D300FFE164 /* books.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		775E8B66247A859700FFE164 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				775E8BC5248019D900FFE164 /* books.txt in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		775E8B68247A859700FFE164 /* Library */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Library; sourceTree = BUILT_PRODUCTS_DIR; };
 		775E8B6B247A859700FFE164 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		775E8B72247A85B000FFE164 /* Library.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Library.cpp; sourceTree = "<group>"; };
+		775E8B73247A85B000FFE164 /* Library.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Library.hpp; sourceTree = "<group>"; };
+		775E8BC4248019D300FFE164 /* books.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = books.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,7 @@
 		775E8B5F247A859700FFE164 = {
 			isa = PBXGroup;
 			children = (
+				775E8BC32480157700FFE164 /* Contents */,
 				775E8B6A247A859700FFE164 /* Library */,
 				775E8B69247A859700FFE164 /* Products */,
 			);
@@ -58,8 +65,18 @@
 			isa = PBXGroup;
 			children = (
 				775E8B6B247A859700FFE164 /* main.cpp */,
+				775E8B72247A85B000FFE164 /* Library.cpp */,
+				775E8B73247A85B000FFE164 /* Library.hpp */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		775E8BC32480157700FFE164 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				775E8BC4248019D300FFE164 /* books.txt */,
+			);
+			path = Contents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				775E8B6C247A859700FFE164 /* main.cpp in Sources */,
+				775E8B74247A85B000FFE164 /* Library.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +256,7 @@
 		775E8B70247A859700FFE164 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HA8PQ78LFS;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -248,6 +267,7 @@
 		775E8B71247A859700FFE164 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HA8PQ78LFS;
 				ENABLE_HARDENED_RUNTIME = YES;

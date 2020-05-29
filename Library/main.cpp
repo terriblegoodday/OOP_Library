@@ -7,9 +7,17 @@
 //
 
 #include <iostream>
+#include "Library.hpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    Library library;
+    library.loadFilesFromStorage();
+    
+    auto filteredBooks = library.filterByAuthor("James Joyce");
+    cout << filteredBooks;
+    auto considerPhlebas = library.filterByAuthor("Iain M. Banks").andBook("Consider Phlebas");
+    cout << considerPhlebas;
+    
     return 0;
 }
