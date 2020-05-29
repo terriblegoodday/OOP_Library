@@ -93,8 +93,7 @@ Library::Filter & Library::Filter::andBook(string book) {
    
     set_intersection(filteredBooks.begin(), filteredBooks.end(), booksByTitle.begin(), booksByTitle.end(), inserter(filterIntersection, filterIntersection.end()));
     
-    filteredBooks.clear();
-    filteredBooks.insert(filterIntersection.begin(), filterIntersection.end());
+    filteredBooks = filterIntersection;
     
     return *this;
 }
@@ -108,7 +107,6 @@ Library::Filter & Library::Filter::andAuthor(string author) {
     set_intersection(filteredBooks.begin(), filteredBooks.end(), booksByAuthor.begin(), booksByAuthor.end(), inserter(filterIntersection, filterIntersection.end()));
     
     filteredBooks = filterIntersection;
-    
     
     return *this;
 }
