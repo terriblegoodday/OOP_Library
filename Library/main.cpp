@@ -23,5 +23,9 @@ int main(int argc, const char * argv[]) {
     
     cout << considerPhlebas.orBook("Excession");
     
+    auto librarian = Librarian(&library);
+    
+    librarian.start();
+    
     return 0;
 }

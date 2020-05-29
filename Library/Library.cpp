@@ -110,3 +110,137 @@ Library::Filter & Library::Filter::andAuthor(string author) {
     
     return *this;
 }
+
+Library::Filter Library::getEmptyFilter() {
+    Filter filter(this);
+    return filter;
+}
+
+Librarian::Librarian(Library * source): currentFilter(source->getEmptyFilter()) {
+    this->source = source;
+}
+
+void Librarian::queryAll() {
+    cout << "Querying all books" << endl;
+    cout << *source << endl;
+}
+
+void Librarian::askForKnot() {
+    cout << "Now choose whether you want to continue building your query" << endl;
+    cout << "Available knots: and " << Knot::andK << ", or " << Knot::orK << "; You can exit by typing " << Knot::exit << endl;
+    int query;
+    cin >> query;
+    auto knot = Knot(query);
+    switch (knot) {
+        case andK:
+            queryAnd();
+            break;
+        case orK:
+            queryOr();
+            break;
+        default:
+            printGoodBye();
+            break;
+    }
+}
+
+void Librarian::queryOr() {
+    cout << "book title " << Query::book << " / author " << Query::author << " / exit " << Query::all << "?" << endl;
+    int query;
+    cin >> query;
+    auto type = Query(query);
+    switch (type) {
+        case book:
+            queryOrBook();
+            break;
+        case author:
+            queryOrAuthor();
+            break;
+        default:
+            printGoodBye();
+            break;
+    }
+}
+
+void Librarian::queryAnd() {
+    cout << "book title " << Query::book << " / author " << Query::author << " / exit " << Query::all << "?" << endl;
+    int query;
+    cin >> query;
+    auto type = Query(query);
+    switch (type) {
+        case book:
+            queryAndBook();
+            break;
+        case author:
+            queryAndAuthor();
+            break;
+        default:
+            printGoodBye();
+            break;
+    }
+}
+
+string Librarian::inputQuery() {
+    string query;
+    cin.ignore();
+    getline(cin, query);
+    return query;
+}
+
+void Librarian::queryOrBook() {
+    cout << "Please input your book title" << endl;
+    auto query = inputQuery();
+    cout << currentFilter.orBook(query);
+    askForKnot();
+}
+
+void Librarian::queryOrAuthor() {
+    cout << "Please input your book author" << endl;
+    auto query = inputQuery();
+    cout << currentFilter.orAuthor(query);
+    askForKnot();
+}
+
+void Librarian::queryAndBook() {
+    cout << "Please input your book title" << endl;
+    auto query = inputQuery();
+    cout << currentFilter.andBook(query);
+    askForKnot();
+}
+
+void Librarian::queryAndAuthor() {
+    cout << "Please input your book author" << endl;
+    auto query = inputQuery();
+    cout << currentFilter.andAuthor(query);
+    askForKnot();
+}
+
+void Librarian::start() {
+    cout << "Hi Library User! How would you like your query to be formed?" << endl;
+    cout << "Available commands:" << endl;
+    cout << Query::all << ": query all" << endl;
+    cout << Query::book << ": query books by title" << endl;
+    cout << Query::author << ": query books by author" << endl;
+    int query;
+    cin >> query;
+    auto type = Query(query);
+    
+    switch (type) {
+        case all:
+            queryAll();
+            break;
+        case book:
+            queryOrBook();
+            break;
+        case author:
+            queryOrAuthor();
+            break;
+        default:
+            printGoodBye();
+            break;
+    }
+}
+
+void Librarian::printGoodBye() {
+    cout << "Thanks bye!" << endl;
+}
