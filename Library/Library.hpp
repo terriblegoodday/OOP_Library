@@ -21,7 +21,7 @@ struct Book {
     string title;
     string author;
     
-    Book(string title, string author): title(title), author(author) {};
+    Book(string title, string author);
     
     friend ostream & operator<<(ostream & destination, const Book & source);
     

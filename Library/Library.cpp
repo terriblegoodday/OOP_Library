@@ -8,6 +8,8 @@
 
 #include "Library.hpp"
 
+Book::Book(string title, string author): title(title), author(author) {}
+
 void Library::loadFilesFromStorage() {
     ifstream inputFile;
     inputFile.open("books.txt");
