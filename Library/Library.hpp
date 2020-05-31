@@ -29,9 +29,7 @@ struct Book {
     friend bool operator<(const Book & left, const Book & right);
 };
 
-class Library {
-    friend class Filter;
-    
+class Library {    
 private:
     vector<Book> books;
     
